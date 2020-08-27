@@ -24,10 +24,12 @@ z = 5
 # beta = x*y
 gamma = 1/d
 delta = 1/z
-def calculate_beta(R_value):
-    betaval = R_value * gamma
-    betaval = np.diag(betaval)
-    return betaval
+beta = AvgR0 * gamma
+beta = np.diag(beta)
+# def calculate_beta(R_value):
+#     betaval = R_value * gamma
+#     betaval = np.diag(betaval)
+#     return betaval
 
 # R0_vec = beta/gamma
 
@@ -43,8 +45,8 @@ def derivative_fun(all_vectors, t0):
     E = all_vectors[4:8]
     I = all_vectors[8:12]
     R = all_vectors[12:]
-    beta = calculate_beta(R)
-    print(beta)
+    # beta = calculate_beta(R)
+    # print(beta)
     dsdt = (-1) * np.matmul(beta, S*I)
     dedt = np.matmul(beta, S*I) - delta* E
     didt = delta* E - gamma*I
