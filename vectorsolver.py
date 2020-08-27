@@ -6,9 +6,9 @@ import matplotlib.pyplot as plt
 # t = 100
 
 # Population of states
-N = np.array([124, 237, 29, 85])
+N = np.array([124, 237, 29, 85]) * 10*6
 
-S0 = np.array([124, 237, 29, 85])
+S0 = np.array([124, 237, 29, 85]) * 10*6
 S0 = S0/N
 E0 = np.array([11, 31, 5, 24])
 E0 = E0/N
@@ -25,6 +25,7 @@ z = 5
 gamma = 1/d
 delta = 1/z
 beta = AvgR0 * gamma
+print(beta)
 beta = np.diag(beta)
 # def calculate_beta(R_value):
 #     betaval = R_value * gamma
@@ -45,6 +46,7 @@ def derivative_fun(all_vectors, t0):
     E = all_vectors[4:8]
     I = all_vectors[8:12]
     R = all_vectors[12:]
+    # import pdb; pdb.set_trace()
     # beta = calculate_beta(R)
     # print(beta)
     dsdt = (-1) * np.matmul(beta, S*I)
